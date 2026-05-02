@@ -1,0 +1,82 @@
+/* ============================================================
+   RTL / Arabic Support Styles
+   Add these to your src/index.css or App.css
+   ============================================================ */
+
+/* Arabic font - Google Fonts Noto Sans Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+/* Apply Arabic font when RTL is active */
+html[dir="rtl"],
+html.rtl {
+  font-family: 'Noto Sans Arabic', 'Segoe UI', sans-serif;
+}
+
+/* RTL layout fixes */
+html[dir="rtl"] .sidebar {
+  right: 0;
+  left: auto;
+  border-right: none;
+  border-left: 1px solid #e5e7eb;
+}
+
+html[dir="rtl"] .main-content {
+  margin-right: var(--sidebar-width, 256px);
+  margin-left: 0;
+}
+
+/* Flip icons that indicate direction */
+html[dir="rtl"] .icon-arrow-right,
+html[dir="rtl"] .icon-chevron-right,
+html[dir="rtl"] .icon-arrow-left,
+html[dir="rtl"] .icon-chevron-left {
+  transform: scaleX(-1);
+}
+
+/* Form inputs RTL */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  text-align: right;
+}
+
+/* Table RTL */
+html[dir="rtl"] th,
+html[dir="rtl"] td {
+  text-align: right;
+}
+
+/* Flex row reverse for RTL nav items */
+html[dir="rtl"] .nav-item {
+  flex-direction: row-reverse;
+}
+
+/* Padding/margin flip helpers (use these classes in your components) */
+html[dir="rtl"] .ps-4 { padding-right: 1rem; padding-left: 0; }
+html[dir="rtl"] .pe-4 { padding-left: 1rem; padding-right: 0; }
+html[dir="rtl"] .ms-4 { margin-right: 1rem; margin-left: 0; }
+html[dir="rtl"] .me-4 { margin-left: 1rem; margin-right: 0; }
+
+/* Dropdown / select arrow position */
+html[dir="rtl"] select {
+  background-position: left 0.75rem center;
+  padding-right: 0.75rem;
+  padding-left: 2.5rem;
+}
+
+/* Notification badge position */
+html[dir="rtl"] .badge-top-right {
+  right: auto;
+  left: 0;
+}
+
+/* Tailwind RTL: if you add tailwind-rtl or use Tailwind v3.3+ logical properties,
+   replace directional utilities like:
+     mr-* → me-*   (margin-end)
+     ml-* → ms-*   (margin-start)
+     pr-* → pe-*   (padding-end)
+     pl-* → ps-*   (padding-start)
+     left-* → start-*
+     right-* → end-*
+   These are automatically RTL-aware in Tailwind v3.3+
+*/

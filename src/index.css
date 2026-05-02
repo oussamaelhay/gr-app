@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './rtl.css';
+
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+}
+
+* {
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: #f5f3ef;
+  color: #1a1a2e;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@layer utilities {
+  .stamp-border {
+    border: 2px dashed #c8a45a;
+    position: relative;
+  }
+  .stamp-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid #c8a45a;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
